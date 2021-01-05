@@ -1,4 +1,4 @@
-# HibachiFinancials is a program to read Edinet XBRL and transform the data into PostgreSQL written in Python.
+# HibachiFinancials
 
 - Data Taxonomy Set (DTS) is divided into 2.
 1. Common  file - path [directory + filename] (which is unique)
