@@ -1,2 +1,11 @@
 config.py
 database.ini
+*.pyc
+
+/.ipynb_checkpoints
+/__pycache__
+/database_files
+/EdinetFiles
+/EdinetGeneraltaxonomy
+/xbrlorg
+
