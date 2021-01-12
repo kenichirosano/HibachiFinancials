@@ -1,4 +1,4 @@
-from hibachixbrl import HibachiXLink
+import HibachiXLink
 
 class XmlElement(object):
     def __init__(self, fileName, element):
