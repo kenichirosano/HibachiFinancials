@@ -17,13 +17,15 @@ class XmlElement(object):
 class TaxonomySchema(XmlElement):
 
     def __init__(self, name_of_CurrentFile, taxonomy_ElementTree):
-        print('here')
         super(TaxonomySchema, self).__init__(name_of_CurrentFile, taxonomy_ElementTree)
         self.originalpath = HibachiXLink.getoriginalpath(taxonomy_ElementTree)
         self.fragment_id = HibachiXLink.split_fragment_id(self.originalpath)[1]
-        self.href_type, self.searchablepath, self.href = HibachiXLink.createsearchablepath(name_of_CurrentFile, self.originalpath) #Check original path type and get new path
-        self.roleURI = taxonomy_ElementTree.get('roleURI')       #<roleRef>
-        self.arcroleURI = taxonomy_ElementTree.get('arcroleURI') #<arcroleRef>
+        #Check original path type and get new path
+        self.href_type, self.searchablepath, self.href = HibachiXLink.createsearchablepath(name_of_CurrentFile, self.originalpath) 
+        #<roleRef>
+        self.roleURI = taxonomy_ElementTree.get('roleURI')
+        #<arcroleRef>
+        self.arcroleURI = taxonomy_ElementTree.get('arcroleURI')
 
     def hasJFSApath(self): #Return True if the link contains JFSA link path
         if (self.href_type == 'JFSA'):
