@@ -1,4 +1,4 @@
-import HibachiXLink
+from hibachixbrl import HibachiXLink
 
 class XmlElement(object):
     def __init__(self, fileName, element):
@@ -17,6 +17,7 @@ class XmlElement(object):
 class TaxonomySchema(XmlElement):
 
     def __init__(self, name_of_CurrentFile, taxonomy_ElementTree):
+        print('here')
         super(TaxonomySchema, self).__init__(name_of_CurrentFile, taxonomy_ElementTree)
         self.originalpath = HibachiXLink.getoriginalpath(taxonomy_ElementTree)
         self.fragment_id = HibachiXLink.split_fragment_id(self.originalpath)[1]
