@@ -9,9 +9,19 @@ CREATE TABLE IF NOT EXISTS filelist_DTS (
 
 DROP TABLE taxonomyschema_generaldts;
 CREATE TABLE IF NOT EXISTS taxonomyschema_generaldts (
+	filepath 			VARCHAR(255)
+	,tag				VARCHAR(20)
+	,id					VARCHAR(255)
+	,roleURI			VARCHAR(20)
+	,childElementDict	VARCHAR(20)
+	,PRIMARY KEY (filePath)
+);
+
+DROP TABLE roletype_generaldts;
+CREATE TABLE IF NOT EXISTS roletype_generaldts (
 	filepath 		VARCHAR(255)
 	,tag			VARCHAR(20)
-	,id				VARCHAR(20)
+	,id				VARCHAR(255)
 	,type			VARCHAR(20)
 	,role			VARCHAR(20)
 	,arcrole		VARCHAR(20)
@@ -22,3 +32,4 @@ CREATE TABLE IF NOT EXISTS taxonomyschema_generaldts (
 	,searchablepath	VARCHAR(255)
 	,PRIMARY KEY (filePath)
 );
+roletype_generaldts
