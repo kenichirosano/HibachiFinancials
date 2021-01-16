@@ -84,15 +84,13 @@ def assign_linkbaseElementDictList(fileName, linkbase_ElementTree):
             ,'fragment_ID'   :None
             ,'searchablePath':None
         }
-        list_of_ChildElementDicts = []
 
         # 5.2.2 <labelLink>
         for labelLink_ElementTree in linkbase_ElementTree.findall('labelLink'):
             labelLink_ElementDict = linkbaseLinkElementDict.copy()
             labelLink_ElementDict = HibachiXLink.returnElementAsDict(labelLink_ElementTree, labelLink_ElementDict)
-            list_of_ChildElementDicts = HibachiXLink.returnChildElementListOfDict(fileName, labelLink_ElementTree, 'loc', extendedLinkElementDict)
-            list_of_ChildElementDicts.extend(HibachiXLink.returnChildElementListOfDict(fileName, labelLink_ElementTree, 'label', extendedLinkElementDict))
-            list_of_ChildElementDicts.extend(HibachiXLink.returnChildElementListOfDict(fileName, labelLink_ElementTree, 'labelArc', extendedLinkElementDict))
+            # Get the child element with specific tags
+            list_of_ChildElementDicts = HibachiXLink.returnChildElementListOfDict(fileName, labelLink_ElementTree, ['loc','label','labelArc'], extendedLinkElementDict)
             labelLink_ElementDict['childList'] = list_of_ChildElementDicts
             list_of_LinkbaseElementDict.append(labelLink_ElementDict)
 
@@ -100,9 +98,8 @@ def assign_linkbaseElementDictList(fileName, linkbase_ElementTree):
         for referenceLink_ElementTree in linkbase_ElementTree.findall('referenceLink'):
             referenceLinkElementDict = linkbaseLinkElementDict.copy()
             referenceLinkElementDict = HibachiXLink.returnElementAsDict(referenceLink_ElementTree, referenceLinkElementDict)
-            list_of_ChildElementDicts = HibachiXLink.returnChildElementListOfDict(fileName, referenceLink_ElementTree, 'loc', extendedLinkElementDict)
-            list_of_ChildElementDicts.extend(HibachiXLink.returnChildElementListOfDict(fileName, referenceLink_ElementTree, 'reference', extendedLinkElementDict))
-            list_of_ChildElementDicts.extend(HibachiXLink.returnChildElementListOfDict(fileName, referenceLink_ElementTree, 'referenceArc', extendedLinkElementDict))
+            # Get the child element with specific tags
+            list_of_ChildElementDicts = HibachiXLink.returnChildElementListOfDict(fileName, labelLink_ElementTree, ['loc','label','labelArc'], extendedLinkElementDict)
             referenceLinkElementDict['childList'] = list_of_ChildElementDicts
             list_of_LinkbaseElementDict.append(referenceLinkElementDict)
 
@@ -110,8 +107,8 @@ def assign_linkbaseElementDictList(fileName, linkbase_ElementTree):
         for presentationLink_ElementTree in linkbase_ElementTree.findall('presentationLink'):
             presentationLinkElementDict = linkbaseLinkElementDict.copy()
             presentationLinkElementDict = HibachiXLink.returnElementAsDict(presentationLink_ElementTree, presentationLinkElementDict)
-            list_of_ChildElementDicts = HibachiXLink.returnChildElementListOfDict(fileName, presentationLink_ElementTree, 'loc', extendedLinkElementDict)
-            list_of_ChildElementDicts.extend(HibachiXLink.returnChildElementListOfDict(fileName, presentationLink_ElementTree, 'presentationArc', extendedLinkElementDict))
+            # Get the child element with specific tags 5.2.4.1 <loc>, 5.2.4.2 <presentationArc>
+            list_of_ChildElementDicts = HibachiXLink.returnChildElementListOfDict(fileName, presentationLink_ElementTree,['loc','presentationArc'], extendedLinkElementDict)
             presentationLinkElementDict['childList'] = list_of_ChildElementDicts
             list_of_LinkbaseElementDict.append(presentationLinkElementDict)
 
@@ -119,8 +116,8 @@ def assign_linkbaseElementDictList(fileName, linkbase_ElementTree):
         for calculationLink_ElementTree in linkbase_ElementTree.findall('calculationLink'):
             calculationLinkElementDict = linkbaseLinkElementDict.copy()
             calculationLinkElementDict = HibachiXLink.returnElementAsDict(calculationLink_ElementTree, calculationLinkElementDict)
-            list_of_ChildElementDicts = HibachiXLink.returnChildElementListOfDict(fileName, calculationLink_ElementTree, 'loc', extendedLinkElementDict)
-            list_of_ChildElementDicts.extend(HibachiXLink.returnChildElementListOfDict(fileName, calculationLink_ElementTree, 'calculationArc', extendedLinkElementDict))
+            # Get the child element with specific tags
+            list_of_ChildElementDicts = HibachiXLink.returnChildElementListOfDict(fileName, presentationLink_ElementTree,['loc','calculationArc'], extendedLinkElementDict)
             calculationLinkElementDict['childList'] = list_of_ChildElementDicts
             list_of_LinkbaseElementDict.append(calculationLinkElementDict)
 
@@ -128,8 +125,8 @@ def assign_linkbaseElementDictList(fileName, linkbase_ElementTree):
         for definitionLink_ElementTree in linkbase_ElementTree.findall('definitionLink'):
             definitionLinkElementDict = linkbaseLinkElementDict.copy()
             definitionLinkElementDict = HibachiXLink.returnElementAsDict(definitionLink_ElementTree, definitionLinkElementDict)
-            list_of_ChildElementDicts = HibachiXLink.returnChildElementListOfDict(fileName, definitionLink_ElementTree, 'loc', extendedLinkElementDict)
-            list_of_ChildElementDicts.extend(HibachiXLink.returnChildElementListOfDict(fileName, definitionLink_ElementTree, 'definitionArc', extendedLinkElementDict))
+            # Get the child element with specific tags
+            list_of_ChildElementDicts = HibachiXLink.returnChildElementListOfDict(fileName, definitionLink_ElementTree, ['loc','definitionArc'], extendedLinkElementDict)
             definitionLinkElementDict['childList'] = list_of_ChildElementDicts
             list_of_LinkbaseElementDict.append(definitionLinkElementDict)
 

@@ -93,7 +93,7 @@ def isUniquePath(listOfDTS, new_path):
 
 def returnElementAsDict(currentElement, dictOfAttributes):
     '''
-    Function to return dictionary containing attributes for
+    Return dictionary containing attributes for
     <labelLink> <presentationLink> <definitionLink> <calculationLink> <referenceLink>
     '''
     dictInside = dictOfAttributes.copy()
@@ -110,7 +110,7 @@ def returnElementAsDict(currentElement, dictOfAttributes):
 
     return dictInside
 
-# Function to return dictionary containing attributes for <loc> <arc> <label>
+# Return dictionary containing attributes for <loc> <arc> <label>
 def returnChildElementListOfDict(fileName, parentElement, childElementTagList, dictOfAttributes):
     listOfDict = []
 
