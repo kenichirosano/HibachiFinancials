@@ -1,6 +1,7 @@
 config.py
 database.ini
 *.pyc
+*.log
 
 /.ipynb_checkpoints
 /__pycache__
@@ -8,4 +9,3 @@ database.ini
 /EdinetFiles
 /EdinetGeneraltaxonomy
 /xbrlorg
-
