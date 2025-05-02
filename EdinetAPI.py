@@ -1,14 +1,17 @@
 import requests
 import pandas as pd
+# Import the get_api_key function from the api_key module
+from api_key import get_api_key
 
 # APIのエンドポイント
 url = 'https://disclosure.edinet-fsa.go.jp/api/v2/documents.json'
 
 # パラメータの設定（例: 2024年5月17日の書類を取得）
+api_key = get_api_key()
 params = {
     'date': '2024-05-17',
     'type': 2,  # 2は有価証券報告書などの決算書類
-    "Subscription-Key":"0b23b5dde3214e7c9e8ad15011c55a55"
+    "Subscription-Key": api_key,
 }
 
 # APIリクエストを送信

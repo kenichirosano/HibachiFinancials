@@ -9,3 +9,4 @@ database.ini
 /EdinetFiles
 /EdinetGeneraltaxonomy
 /xbrlorg
+api_key.py
