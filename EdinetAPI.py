@@ -3,26 +3,25 @@ import pandas as pd
 # Import the get_api_key function from the api_key module
 from api_key import get_api_key
 
-# APIのエンドポイント
+# API's URL
 url = 'https://disclosure.edinet-fsa.go.jp/api/v2/documents.json'
 
-# パラメータの設定（例: 2024年5月17日の書類を取得）
+# Set the parameters for the API request and send the request
 api_key = get_api_key()
 params = {
-    'date': '2024-05-17',
+    'date': '2025-05-01',
     'type': 2,  # 2は有価証券報告書などの決算書類
     "Subscription-Key": api_key,
 }
-
-# APIリクエストを送信
 response = requests.get(url, params=params)
 
-# レスポンスのJSONデータを取得
+# Convert the response JSON to a DataFrame 
 data = response.json()
-
-# データフレームに変換
 documents = data['results']
 df = pd.DataFrame(documents)
+
+# Save 
+df.head()
 
 # 特定のカラムだけを選択
 df_filtered = df[['docID', 'secCode','edinetCode', 'filerName', 'docDescription', 'submitDateTime']]
